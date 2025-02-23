@@ -67,7 +67,7 @@ This project is open-source and available under the MIT License.
 
 Contributions are welcome! Feel free to fork the repo and submit a pull request.
 
-## 💻 Learning Resources
+## 💻 Learning Resources:
 
 Explore my additional repositories to deepen your understanding of related topics in the JavaScript ecosystem:
 
