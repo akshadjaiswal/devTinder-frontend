@@ -1,13 +1,15 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnection, removeConnection } from "../utils/connectionSlice";
 
 const Connections = () => {
+ 
   const connections = useSelector((store) => store.connection);
   console.log(connections);
   const dispatch = useDispatch();
+  
   const fetchConnections = async () => {
     try {
       dispatch(removeConnection());
@@ -39,15 +41,15 @@ const Connections = () => {
     <div className=" text-center my-10">
       <h1 className="font-bold text-3xl text-pink-400">Connections ({connections.length})</h1>
       {connections.map((connection) => {
-        const { firstName, lastName, photoURL, age, gender, about } =
+        const {_id, firstName, lastName, photoURL, age, gender, about } =
           connection;
 
         return (
-          <div className="flex items-center m-2 p-2  rounded-lg bg-base-300 w-1/2 mx-auto">
+          <div key={_id} className="flex items-center m-2 p-2  rounded-lg bg-base-300 w-1/2 mx-auto">
             <div>
               <img
                 alt="photo"
-                className="w-14 h-14 rounded-full"
+                className="w-14 h-14 rounded-full object-contain"
                 src={photoURL}
               />
             </div>
