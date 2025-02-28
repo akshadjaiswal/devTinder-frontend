@@ -11,6 +11,7 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  
   const fetchUser = async () => {
     try {
       const user = await axios.get(BASE_URL + "/profile/view", {
