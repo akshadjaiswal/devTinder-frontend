@@ -11,7 +11,7 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  
+
   const fetchUser = async () => {
     try {
       const user = await axios.get(BASE_URL + "/profile/view", {
@@ -35,7 +35,9 @@ const Body = () => {
   return (
     <div>
       <Navbar />
-      <Outlet />
+      <div className="pt-20">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

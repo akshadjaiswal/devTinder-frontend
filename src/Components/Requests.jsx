@@ -49,7 +49,7 @@ const Requests = () => {
 
   return (
     <div className=" text-center my-10">
-      <h1 className="font-bold text-3xl text-pink-400">
+      <h1 className="font-bold text-3xl text-pink-400 p-4">
         Requests ({requests.length})
       </h1>
       {requests.map((request) => {

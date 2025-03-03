@@ -12,6 +12,7 @@ const EditProfile = ({ user }) => {
   const [age, setAge] = useState(user.age || "");
   const [gender, setGender] = useState(user.gender);
   const [about, setAbout] = useState(user.about);
+  const [skills, setSkills] = useState(user.skills || []);
   const [error, setError] = useState("");
   const [showToast, setShowToast] = useState(false);
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const EditProfile = ({ user }) => {
           age,
           gender,
           about,
+          skills,
         },
         {
           withCredentials: true,
@@ -124,6 +126,17 @@ const EditProfile = ({ user }) => {
                     </ul>
                   </div>
                 </label>
+                <label className="form-control w-full max-w-xs my-2">
+                  <div className="label">
+                    <span className="label-text">Skills</span>
+                  </div>
+                  <input
+                    type="text"
+                    value={skills}
+                    onChange={(e) => setSkills(e.target.value.split(","))}
+                    className="input input-bordered w-full max-w-xs"
+                  />
+                </label>
 
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
@@ -148,11 +161,11 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
         <UserCard
-          user={{ firstName, lastName, photoURL, about, age, gender }}
+          user={{ firstName, lastName, photoURL, about, age, gender , skills }}
         />
       </div>
       {showToast && (
-        <div className="toast toast-top toast-center">
+        <div className="toast toast-top toast-center pt-20 ">
           <div className="alert alert-success">
             <span>Profile saved successfully</span>
           </div>
